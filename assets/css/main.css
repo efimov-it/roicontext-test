@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&family=Roboto:wght@400;500&display=swap');
+/* "Prosto One" */
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
