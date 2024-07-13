@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Prosto+One&family=Roboto:wght@400;500&display=swap');
-/* "Prosto One" */
+
+:root {
+    /* Fonts */
+    --roboto: 'Roboto', sans-serif;
+    --prosto: 'Prosto One', sans-serif;
+
+    /* Colors */
+    --background: #DCDCDC;
+    --black: #20004C;
+    --form-background: #8E9EA5;
+    --white: #ffffff;
+    --text-secondary: #DCE0E3;
+    --accent-main: #E93A7D;
+    --accent-disabled: #A4808D;
+    --accent-secondary: #23E0C4;
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -8,6 +24,440 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-color: var(--background);
+}
+
 .hidden {
     display: none;
+}
+
+
+.rc-main {
+    margin: 0px auto;
+    max-width: 1440px;
+    padding: 64px 20px;
+}
+
+.rc-formBlock {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--form-background);
+    background-image: image-set(
+        "../images/background_d.webp" 1x,
+        "../images/background_d@2x.webp" 2x,
+        "../images/background_t.webp" 1x,
+        "../images/background_t@2x.webp" 2x,
+        "../images/background_m.webp" 1x,
+        "../images/background_m@2x.webp" 2x
+    );
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 24px;
+    padding: 116px 40px;
+    max-width: 880px;
+    margin: 0px auto;
+}
+
+.rc-formBlock_title {
+    font-weight: 400;
+    font-family: var(--prosto);
+    color: var(--white);
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.rc-formBlock_text {
+    color: var(--white);
+    margin: 0px auto;
+    text-align: center;
+    line-height: 120%;
+
+    max-width: 492px;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.rc-formBlock_form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 80px;
+    width: 100%;
+    max-width: 492px;
+    gap: 12px;
+}
+
+.rc-formRowLayout {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.rc-formRowLayout__spaceBetween {
+    justify-content: space-between;
+}
+
+.rc-input {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    position: relative;
+
+    border-radius: 4px;
+    border: 2px solid var(--white);
+}
+
+.rc-input__textarea {
+    /* align-items: flex-start; */
+
+    height: 80px;
+}
+
+.rc-input_value {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--white);
+
+    font-size: 12px;
+    height: 32px;
+    padding: 0px 12px;
+}
+
+.rc-input_value__textarea {
+    resize: none;
+
+    height: 80px;
+    padding: 12px;
+}
+
+.rc-input_placeholder {
+    position: absolute;
+    color: var(--text-secondary);
+    cursor: text;
+
+    font-size: 12px;
+    padding-left: 12px;
+    top: 8px;
+
+    transition: font-size 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+}
+
+.rc-input_value:focus + .rc-input_placeholder,
+.rc-input_value:not(:placeholder-shown) + .rc-input_placeholder {
+    font-size: 8px;
+    transform: translateY(-8px);
+}
+
+.rc-input_error {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    right: 8px;
+    top: 7px;
+}
+
+.rc-input__error {
+    border-color: var(--accent-main);
+}
+
+.rc-input__error .rc-input_error {
+    display: flex;
+}
+
+.rc-input_errorIcon {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.rc-input_errorMessage {
+    position: absolute;
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: scale(0);
+    z-index: 1;
+    background: var(--white);
+    color: var(--accent-main);
+    transform-origin: top right;
+
+    width: 200px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.rc-input_errorIcon:hover + .rc-input_errorMessage,
+.rc-input_errorMessage:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.rc-formBlock_inputName, .rc-formBlock_inputEmail {
+    width: 240px;
+}
+
+.rc-formBlock_inputMessage {
+
+}
+
+.rc-checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.rc-checkbox_value {
+    position: absolute;
+    transform: scale(0);
+}
+
+.rc-checkbox_icon {
+    position: absolute;
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+    width: 8px;
+    height: 6px;
+    left: 14px;
+
+    opacity: 0;
+    transform: scale(0);
+}
+
+.rc-checkbox_text {
+    user-select: none;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 120%;
+    color: var(--white);
+
+    padding-left: 32px;
+    font-size: 12px;
+}
+
+.rc-checkbox_text::before {
+    content: ' ';
+    position: absolute;
+    transition: border-color 0.3s ease-in-out,
+                background 0.3s ease-in-out;
+
+    width: 16px;
+    height: 16px;
+    left: 8px;
+    border-radius: 4px;
+    border: 2px solid var(--white);
+}
+
+.rc-checkbox__error .rc-checkbox_text::before {
+    border-color: var(--accent-main);
+}
+
+.rc-checkbox_value:checked ~ .rc-checkbox_icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.rc-checkbox_value:checked ~ .rc-checkbox_text::before {
+    border-color: var(--accent-secondary);
+    background: var(--accent-secondary);
+}
+
+.rc-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-main);
+    color: var(--white);
+    line-height: 100%;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+
+    height: 32px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.rc-button:disabled {
+    cursor: not-allowed;
+    background: var(--accent-disabled);
+}
+
+.rc-formBlock_submit {
+    width: 140px;
+}
+
+.rc-dividerText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.rc-dividerText_line {
+    width: 100%;
+    border: 1px solid var(--white);
+}
+
+.rc-dividerText_text {
+    white-space: nowrap;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 100%;
+
+    font-size: 12px;
+}
+
+.rc-phoneNumber {
+    display: inline-block;
+    margin: 0px auto;
+    color: var(--white);
+    line-height: 100%;
+    font-family: var(--prosto);
+
+    font-size: 16px;
+}
+
+
+.rc-modal {
+    display: none;
+    position: fixed;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 100;
+
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+}
+
+.rc-modal__shown {
+    opacity: 1;
+}
+
+.rc-modal_background {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 0;
+
+    background: var(--black);
+    opacity: 0.3;
+}
+
+.rc-modal_wrapper {
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+    border-radius: 20px;
+    width: clamp(300px, 100vw, auto);
+    height: clamp(200px, 100vh, auto);
+    padding: 20px;
+}
+
+.rc-modal_close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    top: 12px;
+    right: 12px;
+}
+
+.rc-modal_closeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.rc-modal_icon {
+    width: 58px;
+    height: 58px;
+}
+
+.rc-modal_title {
+    font-family: var(--prosto);
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 920px) {
+    .rc-formBlock {
+        background-image: image-set(
+            "../images/background_t.webp" 1x,
+            "../images/background_t@2x.webp" 2x
+        );
+    }
+}
+
+@media screen and (max-width: 525px) {
+
+    .rc-formBlock {
+        padding: 44px 20px;
+
+        background-image: image-set(
+            "../images/background_m.webp" 1x,
+            "../images/background_m@2x.webp" 2x
+        );
+    }
+
+    .rc-formBlock_text {
+        text-align: left;
+    }
+
+    .rc-formBlock_form {
+        margin-bottom: 32px;
+    }
+
+    .rc-formRowLayout {
+        flex-direction: column;
+    }
+
+    .rc-formBlock_inputName,
+    .rc-formBlock_inputEmail,
+    .rc-formBlock_inputMessage {
+        width: 100%;
+    }
+
+    .rc-formBlock_inputPrivacy {
+        /* width: 100%; */
+        margin: 0px auto;
+    }
+
+    .rc-formBlock_submit {
+        width: 100%;
+    }
 }

@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контактная форма</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Контактная форма">
+    <meta property="og:description" content="Заполнение формы — это первый шаг к получению качественной и профессиональной поддержки, которая поможет вам решить ваши вопросы и достигнуть поставленных целей. Мы всегда готовы помочь вам!">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="assets/images/og.jpg">
+    <meta property="og:site_name" content="Roicontext × @efimov_it">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image:src" content="assets/images/og.jpg">
 
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- Взял за основу: https://dribbble.com/shots/17805765-Contacts-page-design -->
@@ -14,8 +27,110 @@
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 6" id="check">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.28151L3.04923 6L0 3.09384L1.34459 1.81233L3.04923 3.43698L6.65541 0L8 1.28151Z" fill="#20004C"></path>
         </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="alert">
+            <path d="M6.5089 2.39953C7.43159 1.86682 8.56838 1.86682 9.49106 2.39953L12.1046 3.90845C13.0273 4.44117 13.5957 5.42566 13.5957 6.49108V9.50892C13.5957 10.5743 13.0273 11.5588 12.1046 12.0915L9.49106 13.6005C8.56838 14.1332 7.43159 14.1332 6.5089 13.6005L3.89538 12.0915C2.97269 11.5588 2.4043 10.5743 2.4043 9.50892V6.49108C2.4043 5.42566 2.97269 4.44117 3.89538 3.90845L6.5089 2.39953Z" fill="#E93A7D"></path>
+            <path d="M7.40387 9.49126L7.25476 4.521H8.84525L8.70608 9.49126H7.40387ZM8.79554 10.8332C8.79554 11.032 8.72596 11.2077 8.58679 11.3601C8.45425 11.5059 8.27532 11.5788 8.05 11.5788C7.82468 11.5788 7.64244 11.5059 7.50327 11.3601C7.37073 11.2077 7.30446 11.032 7.30446 10.8332C7.30446 10.6344 7.37073 10.4621 7.50327 10.3163C7.64244 10.1639 7.82468 10.0877 8.05 10.0877C8.26869 10.0877 8.44762 10.1639 8.58679 10.3163C8.72596 10.4621 8.79554 10.6344 8.79554 10.8332Z" fill="white"></path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 58" id="success">
+            <path d="M19.8389 1.93108C24.2986 -0.643692 29.7931 -0.643693 34.2527 1.93108L46.8848 9.2242C51.3444 11.799 54.0916 16.5573 54.0916 21.7069V36.2931C54.0916 41.4427 51.3444 46.201 46.8848 48.7758L34.2527 56.0689C29.7931 58.6437 24.2986 58.6437 19.8389 56.0689L7.20688 48.7758C2.74725 46.201 0 41.4427 0 36.2931V21.7069C0 16.5573 2.74725 11.799 7.20688 9.2242L19.8389 1.93108Z" fill="#E93A7D"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M40.6667 23.2717L24.1641 39L14 29.3128L18.482 25.0411L24.1641 30.4566L36.1847 19L40.6667 23.2717Z" fill="white"></path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" id="cross">
+            <path d="M1.5 1.5L17.5 17.5M17.5 1.5L1.5 17.5" stroke="#20004C" stroke-width="2"></path>
+        </symbol>
     </svg>
+
+    <main class="rc-main">
+        <section class="rc-formBlock">
+            <h1 class="rc-formBlock_title">Свяжитесь с&nbsp;нами</h1>
+
+            <p class="rc-formBlock_text">
+                Заполнение формы — это первый шаг к получению качественной и профессиональной поддержки, которая поможет вам решить ваши вопросы и достигнуть поставленных целей. Мы всегда готовы помочь вам!
+            </p>
+
+            <form action="/api/feedback/" method="post" class="rc-formBlock_form" id="feedbackForm">
+                <div class="rc-formRowLayout">
+                    <label class="rc-input rc-formBlock_inputName" data-classname="rc-input">
+                        <input type="text" class="rc-input_value" name="name" required placeholder=" ">
+                        <span class="rc-input_placeholder">Ваше имя</span>
+
+                        <div class="rc-input_error">
+                            <svg class="rc-input_errorIcon">
+                                <use xlink:href="#alert"></use>
+                            </svg>
+
+                            <p class="rc-input_errorMessage">Сообщение об ошибке</p>
+                        </div>
+                    </label>
+                    
+                    <label class="rc-input rc-formBlock_inputEmail" data-classname="rc-input">
+                        <input type="email" class="rc-input_value" name="email" required placeholder=" ">
+                        <span class="rc-input_placeholder">Ваша эл. почта</span>
+
+                        <div class="rc-input_error">
+                            <svg class="rc-input_errorIcon">
+                                <use xlink:href="#alert"></use>
+                            </svg>
+
+                            <p class="rc-input_errorMessage">Сообщение об ошибке</p>
+                        </div>
+                    </label>
+                </div>
+                    
+                <label class="rc-input rc-input__textarea rc-formBlock_inputMessage" data-classname="rc-input">
+                    <textarea class="rc-input_value rc-input_value__textarea" name="message" required placeholder=" "></textarea>
+                    <span class="rc-input_placeholder">Ваше сообщение</span>
+
+                    <div class="rc-input_error">
+                        <svg class="rc-input_errorIcon">
+                            <use xlink:href="#alert"></use>
+                        </svg>
+
+                        <p class="rc-input_errorMessage">Сообщение об ошибке</p>
+                    </div>
+                </label>
+                
+                <div class="rc-formRowLayout rc-formRowLayout__spaceBetween">
+                    <label class="rc-checkbox rc-formBlock_inputPrivacy" data-classname="rc-checkbox">
+                        <input type="checkbox" class="rc-checkbox_value" name="privacy" required>
+                        <svg class="rc-checkbox_icon">
+                            <use xlink:href="#check"></use>
+                        </svg>
+                        <span class="rc-checkbox_text">Согласен с условиями<br>обработки информации</span>
+                    </label>
+
+                    <button type="submit" class="rc-button rc-formBlock_submit">Отправить</button>
+                </div>
+            </form>
+
+            <div class="rc-dividerText">
+                <hr class="rc-dividerText_line">
+                <p class="rc-dividerText_text">или позвоните нам</p>
+                <hr class="rc-dividerText_line">
+            </div>
+
+            <a href="tel:+38268365853" class="rc-phoneNumber">+382 68 365 853</a>
+        </section>
+
+    </main>
     
+    <div class="rc-modal">
+        <div class="rc-modal_background"></div>
+
+        <div class="rc-modal_wrapper">
+            <button class="rc-modal_close" type="button">
+                <svg class="rc-modal_closeIcon">
+                    <use xlink:href="#cross"></use>
+                </svg>
+            </button>
+
+            <svg class="rc-modal_icon">
+                <use xlink:href="#success"></use>
+            </svg>
+
+            <h3 class="rc-modal_title">Спасибо<br>за Ваше сообщение!</h3>
+        </div>
+    </div>
 
     <script src="assets/js/main.js" defer></script>
 </body>
