@@ -71,7 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
             fieldContainer.classList.add(fieldContainer.dataset.classname + '__error');
 
             const errorTextElement = fieldContainer.querySelector('.rc-input_errorMessage');
-            if (errorTextElement) errorTextElement.textContent = errorText;
+            if (errorTextElement) {
+                errorTextElement.textContent = errorText;
+                errorTextElement.ariaHidden = false;
+            }
         }
 
         // Если поле менялось, убираем ошибку до валидации
@@ -81,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!fieldContainer) return;
 
                 fieldContainer.classList.remove(fieldContainer.dataset.classname + '__error');
+
+                const errorTextElement = fieldContainer.querySelector('.rc-input_errorMessage');
+                if (errorTextElement) errorTextElement.ariaHidden = true;
             }
         });
 
