@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         }
 
+        // Hide midal
         modalBackground.onclick = closeModalBtn.onclick = () => {
             modal.classList.remove('rc-modal__shown');
     

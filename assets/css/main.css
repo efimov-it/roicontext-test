@@ -100,9 +100,6 @@ body {
 }
 
 .rc-input {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
     position: relative;
 
     border-radius: 4px;
@@ -110,8 +107,6 @@ body {
 }
 
 .rc-input__textarea {
-    /* align-items: flex-start; */
-
     height: 80px;
 }
 
@@ -205,10 +200,6 @@ body {
 
 .rc-formBlock_inputName, .rc-formBlock_inputEmail {
     width: 240px;
-}
-
-.rc-formBlock_inputMessage {
-
 }
 
 .rc-checkbox {
@@ -453,7 +444,6 @@ body {
     }
 
     .rc-formBlock_inputPrivacy {
-        /* width: 100%; */
         margin: 0px auto;
     }
 
